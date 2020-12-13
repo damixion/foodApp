@@ -1,0 +1,40 @@
+.main
+{
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  &__indata
+  {
+
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    align-items: center;
+
+    &--table
+    {
+      width: 25vw;
+      overflow: auto;
+      max-height: 30vh;
+    }
+
+    &--btnReset
+    {
+      margin: 0.5vw;
+      width: 5vw;
+    }
+  }
+
+  &__result
+  {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+  }
+
+
+}
+

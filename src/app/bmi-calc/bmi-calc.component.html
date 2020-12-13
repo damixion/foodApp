@@ -1,0 +1,27 @@
+<div class="main">
+<h1>Kalkulator BMI</h1>
+<form class="example-form">
+
+  <mat-form-field class="example-full-width">
+    <mat-label name="masa_ciala">Masa ciała</mat-label>
+    <input matInput [(ngModel)]="waga" type="number" name="mc" ngModel #mc="ngModel" class="form-control" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <mat-label name="wzrost">Wzrost</mat-label>
+    <input matInput [(ngModel)]="wzrost" type="number" name="wz" ngModel #wz="ngModel" class="form-control" required>
+  </mat-form-field>
+<br>
+  <button mat-raised-button color="accent"  [disabled]="!mc.valid || !wz.valid" (click)="obliczBmi()">Oblicz</button>
+</form>
+
+
+<div class="cnt-wyniki" *ngIf="result != 0">
+  <span ng-style="rStyle" >Wynik: {{result}} </span>
+ <br>
+ Diagnoza: <span [ngClass]="{ 'style-good': result <=30 , 'style-bad': result > 30 || result < 19 }"> {{diagnostic.verdict}} </span>
+  <br>
+  <span class="diagnoza" style="color: black;">Zalecenia: {{diagnostic.advcie}} </span>
+</div>
+<br>
+</div>

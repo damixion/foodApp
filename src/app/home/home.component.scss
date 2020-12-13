@@ -1,0 +1,26 @@
+
+$colorNapis: rgb(243, 208, 9);
+.image
+{
+align-items: center;
+display: flex;
+flex-direction: column;
+
+.labelTitle
+{
+  text-align: center;
+  color: $colorNapis;
+  text-decoration: underline double;
+  font-size: 3em;
+}
+.img_logo
+{
+  padding: 3vw;
+  width: 40vw;
+  height: 40vw;
+}
+
+
+}
+
+

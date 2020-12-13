@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyDdQ9QaKXNnds__OZvmyO_Znbfqiot8M2o',
+    authDomain: 'licznikkalori.firebaseapp.com',
+    databaseURL: 'https://licznikkalori.firebaseio.com',
+    projectId: 'licznikkalori',
+    storageBucket: 'licznikkalori.appspot.com',
+    messagingSenderId: '420070117666',
+    appId: '1:420070117666:web:3722432fb332d0294c157b'
+  }
 };
 
 /*

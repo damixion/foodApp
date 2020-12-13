@@ -1,0 +1,64 @@
+<div class="main">
+<div class="main__indata">
+  <h1>Licznik kalori</h1>
+<form>
+  <mat-form-field class="example-full-width">
+    <mat-label name="meal">Nazwa posiłku</mat-label>
+    <input required matInput value="" [(ngModel)]="nameMeal" type="text" name="meal" #meal="ngModel" class="formControl">
+
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" style="margin-left: 30px;">
+    <mat-label name="calories">Ilośc kalori</mat-label>
+    <input required matInput value="" [(ngModel)]="itemKcal" type="number" name="calories" #calories="ngModel" class="formControl">
+  </mat-form-field>
+
+  <button mat-raised-button color="accent" [disabled]="!meal.valid || !calories.valid"  (click)="dodaj()" style="margin-left: 30px;">Dodaj</button>
+</form>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 main__indata--table">
+
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> Nr </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Meal </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="calories">
+      <th mat-header-cell *matHeaderCellDef> Calories </th>
+      <td mat-cell *matCellDef="let element"> {{element.calories}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <button mat-raised-button color="accent" class="main__indata--btnReset" (click)="reset()" style="margin-left: 30px;">Resetuj</button>
+</div>
+<div class="main__result">
+
+  <span> Dsotastarczona dawka kalori: {{sumCalories}}</span>
+
+  <h4>Wybierz płeć</h4>
+ <mat-form-field appearance="fill">
+   <mat-label>Płeć</mat-label>
+   <mat-select [(value)]="selectGender" >
+     <mat-option *ngFor="let g of gender  let x = index" value = {{x}}  (click)="refreshNeedCalories()">
+       {{g.text}}
+     </mat-option>
+   </mat-select>
+
+ </mat-form-field>
+
+   <br>
+<ng-container *ngIf="selectGender != null">
+
+   Twoje dzienne zapotrzebowanie na kalorie: {{needCalories}}
+   <br>
+   Do uzupełnienia pozostało: {{restCalories}}
+  </ng-container>
+ </div>
+
+  </div>
